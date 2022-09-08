@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import router from "./routes/insectNavigate.route";
+import router from "./routes/insectNavigate.route.js";
 const app = express();
 app.use(express.json());
 app.use(cors());

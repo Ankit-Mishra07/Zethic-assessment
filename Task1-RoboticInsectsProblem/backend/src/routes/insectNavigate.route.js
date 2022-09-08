@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getInputAndShowNavigationResult } from "../controllers/insectNavigation.controller";
+import { getInputAndShowNavigationResult } from "../controllers/insectNavigation.controller.js";
 
 const router = Router();
 
