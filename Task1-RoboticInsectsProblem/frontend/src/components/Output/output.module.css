@@ -1,0 +1,6 @@
+.main__outputbox {
+  width: 100%;
+  background-color: rgb(243, 241, 241);
+  padding: 1rem;
+  position: relative;
+}

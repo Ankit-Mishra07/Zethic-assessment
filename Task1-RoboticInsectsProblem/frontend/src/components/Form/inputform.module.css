@@ -1,0 +1,62 @@
+.main_form_box {
+  width: 100%;
+  background-color: rgb(243, 241, 241);
+  padding: 1rem;
+}
+
+.form__box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+input {
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 4px;
+}
+.roomInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+button {
+  background-color: #0096ff;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
+}
+button:active {
+  transform: scale(0.9);
+}
+
+.inputbox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.each__inputbox {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  /* justify-content: space-between; */
+  align-items: baseline;
+}
+.each__inputbox > div {
+  font-size: 14px;
+  color: #011422;
+}

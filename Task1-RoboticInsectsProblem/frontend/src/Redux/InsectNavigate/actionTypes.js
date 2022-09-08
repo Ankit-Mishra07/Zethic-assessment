@@ -1,0 +1,3 @@
+export const RESULT_REQUEST = "RESULT_REQUEST";
+export const RESULT_SUCCESS = "RESULT_SUCCESS";
+export const RESULT_FAIL = "RESULT_FAIL";
