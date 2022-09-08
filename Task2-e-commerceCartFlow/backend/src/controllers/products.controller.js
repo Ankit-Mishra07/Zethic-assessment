@@ -27,6 +27,12 @@ export const createProduct = async (req, res) => {
         rating: req.body[i].rating,
         img: req.body[i].img,
       });
+      let checkProduct = await AllProduct.findOne({ title: req.body[i].title });
+      if (checkProduct) {
+        return res
+          .status(401)
+          .json({ success: false, message: "Dublicate title" });
+      }
       await product.save();
     }
     res.status(200).json({
