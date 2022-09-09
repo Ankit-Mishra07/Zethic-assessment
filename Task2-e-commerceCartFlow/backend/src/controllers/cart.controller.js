@@ -2,7 +2,7 @@ import Cart from "../models/cart.model.js";
 
 export const getCartProducts = async (req, res) => {
   try {
-    const products = await Cart.find();
+    const products = await Cart.find({ userId: req.params.id });
     let total = products.reduce((sum, cur) => {
       return sum + cur.price;
     }, 0);

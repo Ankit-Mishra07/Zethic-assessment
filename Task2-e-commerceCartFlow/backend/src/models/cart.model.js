@@ -16,6 +16,7 @@ const cartSchema = new Schema(
     rating: reqNumber,
     img: reqArray,
     userId: reqString,
+    productId: reqString,
   },
   {
     versionKey: false,

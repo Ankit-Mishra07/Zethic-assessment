@@ -3,6 +3,7 @@ import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Login from "../Login/Login";
+import { BsFillBagFill } from "react-icons/bs";
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState();
   return (
@@ -23,6 +24,12 @@ const Navbar = () => {
         </div>
 
         <div className={styles.buttonBox}>
+          <span>
+            <Link to={"/"} className={styles.link}>
+              <BsFillBagFill />
+              <sup>0</sup>
+            </Link>
+          </span>
           <button onClick={() => setShowLogin(true)}>Login</button>
         </div>
       </div>

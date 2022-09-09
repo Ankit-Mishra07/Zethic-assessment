@@ -49,3 +49,12 @@
 .buttonBox > button:hover {
   background-color: #00d7ff;
 }
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.buttonBox > span {
+  color: white;
+}
