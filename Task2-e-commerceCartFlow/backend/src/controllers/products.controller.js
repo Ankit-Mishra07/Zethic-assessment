@@ -43,3 +43,15 @@ export const createProduct = async (req, res) => {
     return res.status(500).json({ success: false, message: error.message });
   }
 };
+
+export const getOne = async (req, res) => {
+  try {
+    const product = await AllProduct.findById(req.params.id);
+    return res.status(200).json({
+      success: true,
+      data: product,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};

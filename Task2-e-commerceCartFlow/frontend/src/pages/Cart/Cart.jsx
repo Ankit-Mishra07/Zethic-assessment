@@ -40,7 +40,6 @@ const Cart = () => {
           </div>
         </div>
       )}
-      s
     </>
   );
 };
