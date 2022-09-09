@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cart from "../pages/Cart/Cart";
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
+import OrderPage from "../pages/OrderPage/OrderPage";
 
 const Routing = () => {
   return (
@@ -17,6 +18,7 @@ const Routing = () => {
         <Route path={"/"} element={<Home />}></Route>
         <Route path={"/cart"} element={<Cart />}></Route>
         <Route path={"/product/:id"} element={<ProductDetail />}></Route>
+        <Route path={"/order"} element={<OrderPage />}></Route>
       </Routes>
     </>
   );

@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleAuthLogin } from "../../FetchReq/auth";
+import { takeUserData } from "../../redux/auth/action";
+import { getCookie } from "../../utils/cookies";
 import Register from "../Register/Register";
 import styles from "./login.module.css";
 const Login = ({ showLogin, setShowLogin }) => {
@@ -9,10 +12,11 @@ const Login = ({ showLogin, setShowLogin }) => {
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
   const [showRegister, setShowRegister] = useState(false);
   const handleLogin = () => {
     console.log(form);
-    handleAuthLogin({ ...form });
+    handleAuthLogin({ ...form }, dispatch);
     setShowLogin(false);
   };
   return (

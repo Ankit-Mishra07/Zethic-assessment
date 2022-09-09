@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import CartCard from "../../components/CartCard/CartCard";
 import Loading from "../../components/Loading/Loading";
+import { buyNowOrder } from "../../FetchReq/order";
 import { getCartProductsAction } from "../../redux/cart/action";
 import { getCookie } from "../../utils/cookies";
 import styles from "./cart.module.css";
@@ -16,8 +18,6 @@ const Cart = () => {
       dispatch(getCartProductsAction());
     }
   }, [dispatch]);
-
-  const handleBuyNow = (id) => {};
 
   return (
     <>
@@ -34,9 +34,11 @@ const Cart = () => {
 
           <div className={styles.total_buy_box}>
             <span>Total Price: {total}₹</span>
-            <button className={styles.buynow} onClick={() => handleBuyNow()}>
-              Buy Now
-            </button>
+            <Link to={"/order"}>
+              <button onClick={buyNowOrder} className={styles.buynow}>
+                Buy Now
+              </button>
+            </Link>
           </div>
         </div>
       )}

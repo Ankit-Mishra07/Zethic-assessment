@@ -12,6 +12,9 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductsAction());
+    if (getCookie("token")) {
+      dispatch(getCartProductsAction());
+    }
   }, [dispatch]);
   return (
     <>

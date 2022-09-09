@@ -1,16 +1,13 @@
 import React from "react";
-import styles from "./cartcard.module.css";
 import { AiFillDelete } from "react-icons/ai";
 import { deleteCart } from "../../FetchReq/cart";
 import { getCartProductsAction } from "../../redux/cart/action";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-const CartCard = ({ elem }) => {
+import styles from "./ordercard.module.css";
+const OrderCard = ({ elem }) => {
   const dispatch = useDispatch();
-  const handleDlt = async (id) => {
-    await deleteCart(id);
-    dispatch(getCartProductsAction());
-  };
+
   return (
     <div className={styles.card__box}>
       <Link
@@ -39,14 +36,9 @@ const CartCard = ({ elem }) => {
         </div>
         <br />
         <br />
-        <div className={styles.delete_btn_box}>
-          <button onClick={() => handleDlt(elem._id)}>
-            <AiFillDelete className={styles.dlt_icon} />
-          </button>
-        </div>
       </div>
     </div>
   );
 };
 
-export default CartCard;
+export default OrderCard;

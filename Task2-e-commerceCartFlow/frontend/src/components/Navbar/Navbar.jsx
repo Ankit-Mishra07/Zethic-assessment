@@ -9,7 +9,8 @@ import { getCookie } from "../../utils/cookies";
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState();
   const { cart } = useSelector((state) => state.cartState);
-  console.log("cart", cart);
+  const { token } = useSelector((state) => state.authState);
+
   return (
     <>
       {showLogin === true && (
@@ -21,7 +22,6 @@ const Navbar = () => {
         </Link>
 
         <div className={styles.inputBox}>
-          <input type="text" placeholder="search..." value={"helo"} />
           <Link to={"/"} className={styles.link}>
             All Products
           </Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
               <sup>{cart.length > 0 ? cart.length : 0}</sup>
             </Link>
           </span>
-          {getCookie("token") ? (
+          {token || getCookie("token") ? (
             <button>Logout</button>
           ) : (
             <button onClick={() => setShowLogin(true)}>Login</button>

@@ -1,8 +1,10 @@
 import { toast } from "react-toastify";
-import { setCookie } from "../utils/cookies";
+import { takeUserData } from "../redux/auth/action";
+import { getCartProductsAction } from "../redux/cart/action";
+import { getCookie, setCookie } from "../utils/cookies";
 import { baseURL } from "./baseURL";
 
-export const handleAuthLogin = async (payload) => {
+export const handleAuthLogin = async (payload, dispatch) => {
   await fetch(`${baseURL}/auth/login`, {
     method: "POST",
     body: JSON.stringify(payload),
@@ -17,6 +19,14 @@ export const handleAuthLogin = async (payload) => {
         setCookie("token", res.data.token);
         setCookie("username", res.data.username);
         setCookie("userId", res.data._id);
+        dispatch(
+          takeUserData({
+            token: getCookie("token"),
+            userId: getCookie("userId"),
+            username: getCookie("username"),
+          })
+        );
+        dispatch(getCartProductsAction());
       } else {
         toast.error(res.message);
       }
