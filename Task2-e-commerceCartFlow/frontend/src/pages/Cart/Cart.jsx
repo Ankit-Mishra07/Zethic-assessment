@@ -17,6 +17,8 @@ const Cart = () => {
     }
   }, [dispatch]);
 
+  const handleBuyNow = (id) => {};
+
   return (
     <>
       {isCartLoading ? (
@@ -32,7 +34,9 @@ const Cart = () => {
 
           <div className={styles.total_buy_box}>
             <span>Total Price: {total}₹</span>
-            <button className={styles.buynow}>Buy Now</button>
+            <button className={styles.buynow} onClick={() => handleBuyNow()}>
+              Buy Now
+            </button>
           </div>
         </div>
       )}

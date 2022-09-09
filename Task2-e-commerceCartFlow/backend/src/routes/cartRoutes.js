@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  buyNowCart,
   createCartProduct,
   deleteCart,
   getCartProducts,
@@ -12,4 +13,5 @@ const cartRouter = Router();
 cartRouter.route("/getcart/:id").get(protect, getCartProducts);
 cartRouter.route("/createcart").post(protect, createCartProduct);
 cartRouter.route("/delete/:id").delete(protect, deleteCart);
+cartRouter.route("/order/:id").delete(protect, buyNowCart);
 export default cartRouter;

@@ -47,3 +47,25 @@ export const handleGetCartProducts = async () => {
     toast.error("Something went wrong");
   }
 };
+
+export const deleteCart = async (id) => {
+  try {
+    await fetch(`${baseURL}/cart/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${getCookie("token")}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          toast.success(res.message);
+        } else {
+          toast.error("Some error occured");
+        }
+      });
+  } catch (error) {
+    toast.error("Something went wrong");
+  }
+};

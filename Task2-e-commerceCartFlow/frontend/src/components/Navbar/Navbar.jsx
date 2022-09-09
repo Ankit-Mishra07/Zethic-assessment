@@ -5,6 +5,7 @@ import { useState } from "react";
 import Login from "../Login/Login";
 import { BsFillBagFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { getCookie } from "../../utils/cookies";
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState();
   const { cart } = useSelector((state) => state.cartState);
@@ -33,7 +34,11 @@ const Navbar = () => {
               <sup>{cart.length > 0 ? cart.length : 0}</sup>
             </Link>
           </span>
-          <button onClick={() => setShowLogin(true)}>Login</button>
+          {getCookie("token") ? (
+            <button>Logout</button>
+          ) : (
+            <button onClick={() => setShowLogin(true)}>Login</button>
+          )}
         </div>
       </div>
     </>
