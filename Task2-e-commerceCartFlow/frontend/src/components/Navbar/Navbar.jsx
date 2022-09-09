@@ -28,7 +28,7 @@ const Navbar = () => {
 
         <div className={styles.buttonBox}>
           <span>
-            <Link to={"/"} className={styles.link}>
+            <Link to={"/cart"} className={styles.link}>
               <BsFillBagFill />
               <sup>{cart.length > 0 ? cart.length : 0}</sup>
             </Link>
