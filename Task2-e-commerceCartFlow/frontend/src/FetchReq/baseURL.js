@@ -1,1 +1,1 @@
-export const baseURL = "http://localhost:8080/api";
+export const baseURL = "https://zethic-task2-ecommerce.herokuapp.com/api";

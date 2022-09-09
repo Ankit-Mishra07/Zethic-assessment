@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export const getOrderLists = async () => {
   try {
     let res = await fetch(
-      `http://localhost:8080/api/order/getorder/631a3db57ccd2b6907e8ef0f`,
+      `${baseURL}/order/getorder/631a3db57ccd2b6907e8ef0f`,
       {
         method: "GET",
         headers: {
