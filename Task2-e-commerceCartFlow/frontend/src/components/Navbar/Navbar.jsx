@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
-import { handleLogin } from "../../utils/handleLogin";
 import { useState } from "react";
 import Login from "../Login/Login";
 const Navbar = () => {

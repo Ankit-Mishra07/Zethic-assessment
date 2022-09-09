@@ -18,10 +18,14 @@ export const register = async (req, res) => {
     });
     if (user) {
       return res.status(200).json({
-        _id: user._id,
-        username: user.username,
-        email: user.email,
-        token: generateToken(user._id),
+        success: true,
+        message: "Registered successfully",
+        data: {
+          _id: user._id,
+          username: user.username,
+          email: user.email,
+          token: generateToken(user._id),
+        },
       });
     } else {
       return res
@@ -39,10 +43,15 @@ export const login = async (req, res) => {
     const user = await User.findOne({ email });
     if (user && (await user.matchPassword(password))) {
       return res.status(200).json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        token: generateToken(user._id),
+        success: true,
+        message: "Logged in successfully",
+        data: {
+          _id: user._id,
+          username: user.username,
+          name: user.name,
+          email: user.email,
+          token: generateToken(user._id),
+        },
       });
     } else {
       return res

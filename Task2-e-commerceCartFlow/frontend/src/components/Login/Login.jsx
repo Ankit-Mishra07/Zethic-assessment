@@ -1,10 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { handleAuthLogin } from "../../FetchReq/auth";
 import Register from "../Register/Register";
 import styles from "./login.module.css";
 const Login = ({ showLogin, setShowLogin }) => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
   const [showRegister, setShowRegister] = useState(false);
+  const handleLogin = () => {
+    console.log(form);
+    handleAuthLogin({ ...form });
+    setShowLogin(false);
+  };
   return (
     <>
       {showRegister === true ? (
@@ -39,6 +49,8 @@ const Login = ({ showLogin, setShowLogin }) => {
                 name="email"
                 required
                 className={styles.input}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
 
               <label htmlFor="password">
@@ -50,9 +62,15 @@ const Login = ({ showLogin, setShowLogin }) => {
                 name="password"
                 required
                 className={styles.input}
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
               />
 
-              <button type="submit" className={styles.button}>
+              <button
+                type="submit"
+                className={styles.button}
+                onClick={handleLogin}
+              >
                 Login
               </button>
             </div>

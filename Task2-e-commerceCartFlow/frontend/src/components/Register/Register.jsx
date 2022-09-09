@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { handleAuthRegister } from "../../FetchReq/auth";
 import styles from "../Login/login.module.css";
 const Register = ({ setShowRegister, setShowLogin }) => {
-  console.log("Login");
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const handleRegister = () => {
+    handleAuthRegister(form);
+    setShowRegister(false);
+  };
   return (
     <div className={styles.modal}>
       <div className={`${styles.modal_content} ${styles.animate}`}>
@@ -30,6 +39,8 @@ const Register = ({ setShowRegister, setShowLogin }) => {
             name="username"
             required
             className={styles.input}
+            value={form.username}
+            onChange={(e) => setForm({ ...form, username: e.target.value })}
           />
           <label htmlFor="email">
             <b>Email</b>
@@ -40,6 +51,8 @@ const Register = ({ setShowRegister, setShowLogin }) => {
             name="email"
             required
             className={styles.input}
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
 
           <label htmlFor="password">
@@ -51,9 +64,15 @@ const Register = ({ setShowRegister, setShowLogin }) => {
             name="password"
             required
             className={styles.input}
+            value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
 
-          <button type="submit" className={styles.button}>
+          <button
+            type="submit"
+            className={styles.button}
+            onClick={handleRegister}
+          >
             Register
           </button>
         </div>
