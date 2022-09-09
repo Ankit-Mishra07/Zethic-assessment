@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./card.module.css";
+import { useDispatch } from "react-redux";
+import { createCartProductAction } from "../../redux/cart/action";
 const Card = ({ elem }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.card__box}>
       <div className={styles.img_box}>
@@ -10,7 +14,13 @@ const Card = ({ elem }) => {
       <div className={styles.price}>Rs. {elem.price}₹</div>
 
       <div className={styles.btn_box}>
-        <button>Add to Cart</button>
+        <button
+          onClick={() => {
+            dispatch(createCartProductAction(elem));
+          }}
+        >
+          Add to Cart
+        </button>
         <div className={styles.rating}>
           {elem.rating} <span>★</span>
         </div>

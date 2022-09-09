@@ -30,9 +30,19 @@ export const handleAddToCart = async (payload) => {
 
 export const handleGetCartProducts = async () => {
   try {
-    let res = await fetch(`${baseURL}/cart/getcart/${getCookie("userId")}`);
+    let res = await fetch(`${baseURL}/cart/getcart/${getCookie("userId")}`, {
+      headers: {
+        Authorization: `Bearer ${getCookie("token")}`,
+        "Content-Type": "application/json",
+      },
+    });
     let data = await res.json();
-    return data;
+    if (data.success) {
+      return data;
+    } else {
+      toast.error("Please Login to have cart data");
+      return [];
+    }
   } catch (error) {
     toast.error("Something went wrong");
   }

@@ -7,7 +7,8 @@ export const getCartProductsAction = () => async (dispatch) => {
     dispatch({ type: CART_REQUEST });
 
     const getCart = await handleGetCartProducts();
-    dispatch({ type: CART_SUCCESS, payload: getCart });
+    console.log("action", getCart);
+    dispatch({ type: CART_SUCCESS, payload: { ...getCart } });
   } catch (error) {
     toast.error("Something went wrong");
   }
@@ -17,7 +18,7 @@ export const createCartProductAction = (data) => async (dispatch) => {
   try {
     dispatch({ type: CART_REQUEST });
 
-    const getCart = await handleAddToCart(data);
+    const addCart = await handleAddToCart(data);
     dispatch(getCartProductsAction());
   } catch (error) {
     toast.error("Something went wrong");

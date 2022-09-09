@@ -18,7 +18,7 @@ export const cartReducer = (state = init, { type, payload }) => {
       return {
         ...state,
         isCartLoading: false,
-        cart: payload.data,
+        cart: [...payload.data],
         total: payload.total,
       };
     case CART_FAIL:

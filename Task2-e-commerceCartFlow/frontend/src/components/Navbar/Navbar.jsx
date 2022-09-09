@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Login from "../Login/Login";
 import { BsFillBagFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState();
+  const { cart } = useSelector((state) => state.cartState);
+  console.log("cart", cart);
   return (
     <>
       {showLogin === true && (
@@ -27,7 +30,7 @@ const Navbar = () => {
           <span>
             <Link to={"/"} className={styles.link}>
               <BsFillBagFill />
-              <sup>0</sup>
+              <sup>{cart.length > 0 ? cart.length : 0}</sup>
             </Link>
           </span>
           <button onClick={() => setShowLogin(true)}>Login</button>
